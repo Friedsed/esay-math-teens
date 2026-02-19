@@ -1,0 +1,170 @@
+/* -------- GLOBAL -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9fbff, #e9f3ff);
+  color: #222;
+  min-height: 100vh;
+}
+
+/* -------- HEADER -------- */
+header {
+  background: linear-gradient(90deg, #00aaff, #0072ff);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  text-decoration: underline;
+}
+
+/* -------- HERO -------- */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.hero h2 {
+  color: #0072ff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* -------- SUMMARY -------- */
+.summary {
+  text-align: center;
+  padding: 2rem;
+}
+
+.summary .btn {
+  display: inline-block;
+  background: #0072ff;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.summary .btn:hover {
+  background: #005eea;
+}
+
+/* -------- CALCULATORS -------- */
+main.calculators {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+main h2 {
+  text-align: center;
+  color: #0072ff;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #0072ff;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+.card input {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.card button {
+  background: #00aaff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background: #008dd6;
+}
+
+/* -------- FOOTER -------- */
+footer {
+  text-align: center;
+  background: #0072ff;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}

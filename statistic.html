@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>EasyMath – Statistique</title>
+  <link rel="icon" href="logo1.bmp">
+  <link rel="stylesheet" href="statistic.css">
+  <script defer src="statistic.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>📊 EasyMath – Statistiques</h1>
+      <p>Analyse des données et calculs statistiques pour étudiants</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#v1">Problème à une modalité</a></li>
+        <li><a href="#v2">Problème à modalités sous forme d’intervalle</a></li>
+        <li><a href="#v3">Combinaison</a></li>
+      </ul>
+    </nav>
+
+    <section class="content">
+      <!-- ===== Section 1 ===== -->
+      <section class="card" id="v1">
+        <h2>Problème à une modalité</h2>
+        <p>Résolution avec les modalités sous forme de nombres.</p>
+
+        <div class="input-group">
+          <label for="numElements">Nombre d’éléments :</label>
+          <input type="number" id="numElements" placeholder="Ex: 5">
+        </div>
+
+        <div id="elementInputs" class="dynamic-inputs"></div>
+        <button onclick="calculate()">Calculer</button>
+        <p id="result"></p>
+
+        <hr>
+        <h3>Autres calculs</h3>
+        <button onclick="multiplyArray()">Effectuer les calculs statistiques</button>
+
+        <div class="results">
+          <p>Effectif total : <span id="T"></span></p>
+          <p>Effectifs cumulés : <span id="nicumule"></span></p>
+          <p>Fréquences : <span id="freq"></span></p>
+          <p>Fréquences cumulées : <span id="freqcumule"></span></p>
+          <p>Effectif en degrés : <span id="effdegret"></span></p>
+          <p>Modalité × Effectifs : <span id="nici"></span></p>
+          <p>Somme des nici : <span id="k1"></span></p>
+          <p>Moyenne : <span id="moy"></span></p>
+          <p>nic² : <span id="nicici"></span></p>
+          <p>Somme des nic² : <span id="k2"></span></p>
+          <p>Variance : <span id="variance"></span></p>
+          <p>Écart type : <span id="ec"></span></p>
+        </div>
+      </section>
+
+      <!-- ===== Section 2 ===== -->
+      <section class="card" id="v2">
+        <h2>Problème à modalités sous forme d’intervalle</h2>
+        <p>Supposons les modalités d’intervalle de la forme [a, b[</p>
+
+        <div class="input-group">
+          <label for="modalite0">Entrer les bornes inférieures (a) :</label>
+          <textarea id="modalite0" placeholder="Ex: 0, 10, 20"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="modalite1">Entrer les bornes supérieures (b) :</label>
+          <textarea id="modalite1" placeholder="Ex: 10, 20, 30"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="effectifss">Entrer les effectifs :</label>
+          <textarea id="effectifss" placeholder="Ex: 4, 6, 8"></textarea>
+        </div>
+
+        <button onclick="intervalle()">Calculer</button>
+
+        <div class="results">
+          <p>Effectif total : <span id="Ts"></span></p>
+          <p>Effectifs cumulés : <span id="nicumules"></span></p>
+          <p>Fréquences : <span id="freqs"></span></p>
+          <p>Fréquences cumulées : <span id="freqcumules"></span></p>
+          <p>Effectif en degrés : <span id="effdegrets"></span></p>
+          <p>Modalité × Effectifs : <span id="nicis"></span></p>
+          <p>Somme des nici : <span id="k1s"></span></p>
+          <p>Moyenne : <span id="moys"></span></p>
+          <p>nic² : <span id="nicicis"></span></p>
+          <p>Somme des nic² : <span id="k2s"></span></p>
+          <p>Variance : <span id="variances"></span></p>
+          <p>Écart type : <span id="ecs"></span></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 EasyMath – Tous droits réservés.</p>
+  </footer>
+</body>
+</html>

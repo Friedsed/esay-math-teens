@@ -1,0 +1,140 @@
+/* Reset some defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #1a1a1a;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #4b79a1;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Section styling */
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+/* Summary & contents */
+.summary h2,
+.contents h2 {
+    margin-bottom: 15px;
+    color: #4b79a1;
+    font-size: 1.8rem;
+}
+
+.summary a,
+.contents a {
+    color: #1a73e8;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.summary a:hover,
+.contents a:hover {
+    text-decoration: underline;
+}
+
+/* Input styling */
+input[type="number"] {
+    padding: 6px 10px;
+    margin: 5px 10px 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #4b79a1;
+    outline: none;
+}
+
+/* Labels inline */
+label {
+    margin-right: 10px;
+}
+
+/* Buttons */
+button {
+    background-color: #4b79a1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #3a5f85;
+}
+
+/* Headings in sections */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+/* Results */
+p span {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Make form elements wrap nicely */
+section input, section label, section button {
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    input[type="number"] {
+        width: 80px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    section {
+        padding: 15px;
+    }
+}

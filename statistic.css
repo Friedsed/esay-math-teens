@@ -1,0 +1,173 @@
+/* === Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f6fa;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* === Header === */
+.header {
+  background: linear-gradient(90deg, #0078ff, #00c2ff);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* === Layout === */
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sidebar {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #0078ff;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 0.8rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #0078ff;
+}
+
+/* === Content === */
+.content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  color: #0078ff;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #0078ff;
+  outline: none;
+}
+
+button {
+  background: #0078ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+.results {
+  background: #f9fbff;
+  padding: 1rem;
+  border-left: 4px solid #0078ff;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.results p {
+  margin-bottom: 0.5rem;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #f1f1f1;
+  color: #666;
+  margin-top: 3rem;
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .content {
+    order: 1;
+  }
+}

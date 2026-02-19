@@ -1,0 +1,222 @@
+/* 🎨 STYLE GÉNÉRAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #7F00FF, #E100FF);
+  color: white;
+  padding: 20px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* 🧭 NAVIGATION */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: white;
+  color: #7F00FF;
+}
+
+/* SECTION HÉRO (Accueil) */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  color: #222;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* SECTION VIDÉOS */
+.videos {
+  padding: 60px 10%;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  border-top: 10px solid #E100FF;
+}
+
+.videos h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  color: #7F00FF;
+  margin-bottom: 40px;
+}
+
+.card {
+  width: 320px;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card video {
+  width: 100%;
+  height: auto;
+}
+
+.card h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  padding: 0 15px 20px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* 📚 SECTION COURS / TEXTE */
+.cours {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  padding: 80px 10%;
+  text-align: center;
+  color: #333;
+}
+
+.cours h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cours p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* 💌 FORMULAIRE CONTACT */
+.contact {
+  background: #ffffff;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  color: #7F00FF;
+  margin-bottom: 30px;
+}
+
+form {
+  background: #f9f9f9;
+  border-radius: 25px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #7F00FF, #E100FF);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #E100FF, #7F00FF);
+}
+
+/* 🦶 FOOTER */
+footer {
+  background: linear-gradient(90deg, #7F00FF, #E100FF);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-weight: 500;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  margin-top: 80px;
+}

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Math - Analytic Geometry</title>
+    <link rel="stylesheet" href="analyse_numerique.css">
+    <link rel="icon" href="logo1.bmp">
+    <script src="analyse_numerique.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Analytic Geometry</h1>
+    </header>
+    <main>
+        <section class="summary">
+            <h2>Course Summary</h2>
+            <a href="h">Summary 01 NEED TO BE MODIFY</a><br>
+            <a href="h">Summary 02 NEED TO BE MODIFY</a>
+        </section>
+        </main>
+
+        <!--  Generale explanation of the structure of numerical analysis   -->
+          
+        <section class="SOMMAIRE GENERALE">
+            <p> Mon cours comprend les hyposes sur toutes mes resolution et une explication sur les differentes methode avec des resume de cours pour aller plus vite             </p>
+
+             <P>Resolution de systeme d equation lineaire par les methode :</P>
+               <P>LU; determination des matrice L et U </P> 
+                <P>algorithme de choleski</P>
+                <P>algorithme de choleski</P>
+                <P>Jacobi</P>
+                <P>Gauss Siedel</P>
+                <P>Relaxation lineaire</P>
+                <P>Verification si une matrice est a diagonale dominante</P>
+                <P>Polynome d interpolation de Lagrange</P>
+                <P>Polynome d interpolation de Newton</P>
+                <P>Si possible newton cote simple et compose </P>
+                <P>methode de trapeze ou methode de Simpson</P>
+        </section>
+
+        <!--      -->
+
+        <!-- GENERAL SUMMARY SECTION TO BE MODIFIED OR DELETED -->
+        <section class="contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#v1">Decomposition LU et resolution par decomposition LU</a></li>
+                <li><a href="#v2">Resolution by Jacobi methode</a></li>
+                <li><a href="#v3">Resolution by Gauss Siedel</a></li>
+                <li><a href="#v4">Resolution by relaxation methode </a></li>
+                <li><a href="#v5">Verification if a matrice is diagonale dominante</a></li>
+                <li><a href="#v6">Lagrange interpolation polynomial</a></li>
+                <li><a href="#v7">Newton interpolation polynomial</a></li>
+                <li><a href="#v8">Distance Between Two Points in Space</a></li>
+                <li><a href="#v9"> .......</a></li>
+                <li><a href="#v10">.........</a></li>
+                <li><a href="#v11">.................</a></li>
+                <li><a href="#v12">.....................</a></li>
+                <li><a href="#v13">............</a></li>
+                <li><a href="#v14">.....................</a></li>
+                <li><a href="#v15">.........................</a></li>
+                <li><a href="#v16">....................</a></li>
+       
+        </section>
+
+        <section class="two-dimension">
+            <h2>Resolution of Linear Systems</h2>
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+
+
+            <!-- Section principale contenant l'interface utilisateur -->
+            <section id="v1">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Décomposition LU</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+    
+
+<!-- DECOMPOSITION LU ET RESOLUTION   -->
+             <!-- Section principale contenant l'interface utilisateur -->
+            <section id="v2">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Décomposition LU et resolution de systeme d equation</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number2" id="numEquations2" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs2"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations2"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs2 = document.getElementById("equationInputs2");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations2").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations2 = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs2.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations2; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations2 + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+            <!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW.NEW_NEW_NEW_NEW_NEW  -->
+
+
+<!--  CALCULE DE DETERMINANT PAR LA METHODE DE LU   -->
+
+
+           <!-- Section principale contenant l'interface utilisateur -->
+            <section id="v3">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Calcul de déterminant par la méthode de LU</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+                    
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+        
+
+<!-- RESOLTION DE SYSTEME TRIDIAGONAL  -->
+
+<!-- Section principale contenant l'interface utilisateur -->
+            <section id="v4">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Resolution de systeme tridiagonal</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+
+<!-- VERIFICATION DE MATRICE DOMINATE   -->
+<!-- Section principale contenant l'interface utilisateur -->
+            <section id="v5">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Verification de matrice dominate</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+
+
+<!-- METHODE DE RESOLUTION DE JACOBI   -->
+<!-- Section principale contenant l'interface utilisateur -->
+            <section id="v6">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Methode de resolution de Jacobi</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+
+
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+
+<!-- METHODE DE RESOLUTION DE GAUSS SEIDEL -->
+
+<!-- Section principale contenant l'interface utilisateur -->
+            <section id="v7">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Methode de resolution de Gauss Seidel</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+
+
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+
+<!-- METHODE DE RESOLUTION PAR RELAXATION -->
+
+
+
+
+<!-- Section principale contenant l'interface utilisateur -->
+            <section id="v8">
+                <!-- Titre principal affiché à l'utilisateur -->
+                <h2>Methode</h2>
+                
+                <!-- Instruction pour l'utilisateur -->
+                <p>Nombre d'équations :</p>
+                
+                <!-- Input pour saisir le nombre d'équations (2, 3, etc.) -->
+                <input type="number" id="numEquations" placeholder="Nombre d'équations" min="2" max="5">
+                <br><br>
+                
+                <!-- Conteneur qui sera rempli dynamiquement avec les inputs des coefficients -->
+                <div id="equationInputs"></div>
+                <br>
+                
+                <!-- Bouton qui déclenche la fonction solveSystem() au clic -->
+                <button onclick="solveSystem()">Résoudre</button>
+                
+                <!-- Paragraphe qui affichera le résultat (matrice + solution) -->
+                <p id="equations"></p>
+            
+
+                <script>
+                    // Récupère la référence au conteneur des inputs d'équations 
+                    const equationInputs = document.getElementById("equationInputs");
+                    
+                    // Écouteur d'événement : quand l'utilisateur change le nombre d'équations 
+                    document.getElementById("numEquations").addEventListener("change", function () {
+                        // Récupère la valeur saisie (convertie en entier)
+                        const numEquations = parseInt(this.value);
+                        
+                        // Vide tous les anciens inputs pour repartir à zéro
+                        equationInputs.innerHTML = "";
+                        
+                        // Boucle principale : une ligne par équation (i=1 à n)
+                        for (let i = 1; i <= numEquations; i++) {
+                            // Boucle imbriquée : n+1 coefficients par équation (A|b)       
+                            for (let j = 1; j <= numEquations + 1; j++) {
+                                <!-- Crée un nouvel élément input HTML -->
+                                const input = document.createElement("input");
+                                
+                                // Définit le type comme numérique uniquement
+                                input.type = "number";
+                                
+                                // ID unique pour chaque coefficient : coeff11, coeff12, etc.
+                                input.id = `coeff${i}${j}`;
+                                
+                                // Texte indicatif dans le champ vide
+                                input.placeholder = `a${i}${j}`;
+                                
+                                // Ajoute l'input au conteneur
+                                equationInputs.appendChild(input);
+                            }
+                            // Saut de ligne après chaque équation
+                            equationInputs.appendChild(document.createElement("br"));
+                        }
+                    });
+
+
+                    // FONCTION PRINCIPALE : récupère et affiche la matrice utilisateur
+                      </script>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- NEW  NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->
+<!-- NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW NEW  -->

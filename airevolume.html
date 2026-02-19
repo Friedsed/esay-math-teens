@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyMath Teens – Aires, Périmètres & Volumes</title>
+  <link rel="icon" href="logo1.bmp">
+  <link rel="stylesheet" href="airevolume.css">
+  <script src="airevolume.js" defer></script>
+</head>
+
+<body>
+  <!-- 🧭 HEADER -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="EasyMath logo">
+      <h1>EasyMath Teens</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="arithmetique.html">Arithmetic</a></li>
+        <li><a href="airevolume.html" class="active">Aires & Volumes</a></li>
+        <li><a href="nombrecomplexe.html">Complex Numbers</a></li>
+        <li><a href="statistic.html">Statistics</a></li>
+        <li><a href="trans.html">Geometry</a></li>
+        <li><a href="calculatrice.html">Calculator</a></li>
+        <li><a href="apropos.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 🎯 HERO -->
+  <section class="hero">
+    <h2>Calcul des aires, périmètres et volumes</h2>
+    <p>Explore les formules des figures géométriques les plus courantes et calcule instantanément leurs dimensions.</p>
+  </section>
+
+  <!-- 📘 SOMMAIRE -->
+  <section class="summary">
+    <h3>📄 Résumé du cours</h3>
+    <a href="resume-airevolume.pdf" class="btn">Télécharger le résumé</a>
+  </section>
+
+  <!-- ⚙️ OUTILS DE CALCUL -->
+  <main class="calculators">
+    <h2>🧮 Calculatrices Géométriques</h2>
+    <p class="intro">Choisis une forme pour calculer ses aires, périmètres et volumes.</p>
+
+    <div class="grid">
+
+      <div class="card" id="v4">
+        <h3>Cube</h3>
+        <p>Un cube est un solide dont toutes les faces sont carrées.</p>
+        <input type="number" id="a" placeholder="Longueur de l’arête (a)">
+        <button onclick="cube()">Calculer</button>
+        <p>✔ Périmètre de base : <span id="perimetredebase"></span></p>
+        <p>✔ Aire de base : <span id="airedebase"></span></p>
+        <p>✔ Aire latérale : <span id="airelaterale"></span></p>
+        <p>✔ Aire totale : <span id="airetotale"></span></p>
+        <p>✔ Volume : <span id="volume"></span></p>
+      </div>
+
+      <div class="card" id="v5">
+        <h3>Pavé droit (prisme rectangle)</h3>
+        <p>Un pavé droit est un solide dont les faces sont des rectangles.</p>
+        <input type="number" id="lo" placeholder="Longueur (L)">
+        <input type="number" id="la" placeholder="Largeur (l)">
+        <input type="number" id="h" placeholder="Hauteur (h)">
+        <button onclick="pave_droit()">Calculer</button>
+        <p>✔ Périmètre de base : <span id="Pbpv"></span></p>
+        <p>✔ Aire de base : <span id="Abpv"></span></p>
+        <p>✔ Aire latérale : <span id="Alpv"></span></p>
+        <p>✔ Aire totale : <span id="Atpv"></span></p>
+        <p>✔ Volume : <span id="Vpv"></span></p>
+      </div>
+
+      <div class="card" id="v6">
+        <h3>Cylindre</h3>
+        <p>Un cylindre est un solide à deux bases circulaires identiques reliées par une surface courbe.</p>
+        <input type="number" id="r" placeholder="Rayon (r)">
+        <input type="number" id="h" placeholder="Hauteur (h)">
+        <button onclick="cylindre()">Calculer</button>
+        <p>✔ Périmètre de base : <span id="Pbc"></span></p>
+        <p>✔ Aire de base : <span id="Abc"></span></p>
+        <p>✔ Aire latérale : <span id="Alc"></span></p>
+        <p>✔ Aire totale : <span id="Atc"></span></p>
+        <p>✔ Volume : <span id="Vc"></span></p>
+      </div>
+
+      <div class="card" id="v7">
+        <h3>Cône de révolution</h3>
+        <p>Un cône de révolution possède une base circulaire et une surface latérale courbe.</p>
+        <input type="number" id="r1" placeholder="Rayon (r)">
+        <input type="number" id="a1" placeholder="Apothème (a)">
+        <button onclick="cone_revolution()">Calculer</button>
+        <p>✔ Périmètre de base : <span id="Pbcr"></span></p>
+        <p>✔ Aire de base : <span id="Abcr"></span></p>
+        <p>✔ Aire latérale : <span id="Alcr"></span></p>
+        <p>✔ Aire totale : <span id="Atcr"></span></p>
+        <p>✔ Volume : <span id="Vcr"></span></p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 🦶 FOOTER -->
+  <footer>
+    <p>&copy; <span class="year"></span> EasyMath Teens — Tous droits réservés.</p>
+  </footer>
+</body>
+</html>

@@ -1,10 +1,10 @@
 # esay-math-teens
-# 📚 Easy-Math
+# Easy-Math
 
 Easy-Math est une plateforme éducative dédiée à l’apprentissage et à la compréhension des mathématiques.  
 Le projet vise à fournir des ressources pédagogiques claires pour aider les étudiants à mieux comprendre les concepts mathématiques, du niveau secondaire jusqu’au niveau universitaire.
 
-## 🌍 Aperçu du projet
+## Aperçu du projet
 
 Easy-Math propose :
 
@@ -17,7 +17,7 @@ Le site est conçu pour aider les étudiants à réviser efficacement et à dév
 
 ---
 
-## 🎯 Mission
+## Mission
 
 La mission d'Easy-Math est d'accompagner les étudiants dans la découverte autonome des solutions à leurs problèmes mathématiques.
 
@@ -32,7 +32,7 @@ L’objectif est de rendre l’apprentissage plus accessible et plus intuitif.
 
 ---
 
-## 🚀 Objectifs
+## Objectifs
 
 Easy-Math cherche à :
 
@@ -41,22 +41,10 @@ Easy-Math cherche à :
 - proposer des ressources pédagogiques structurées
 - encourager la pratique régulière des exercices
 
----
-
-## 💡 Valeurs du projet
-
-### 🎧 Écoute
-Easy-Math accorde une grande importance aux retours et aux questions des étudiants afin d'améliorer continuellement le contenu pédagogique.
-
-### 💪 Persévérance
-La réussite en mathématiques demande du travail et de la régularité. Le projet encourage les étudiants à ne pas abandonner face aux difficultés.
-
-### 🧠 Entraînement
-La maîtrise des mathématiques repose sur la pratique régulière d'exercices et la compréhension des concepts fondamentaux.
 
 ---
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 - HTML
 - CSS
@@ -65,7 +53,7 @@ La maîtrise des mathématiques repose sur la pratique régulière d'exercices e
 
 ---
 
-## 🌐 Démo du site
+## Démo du site
 
 Le site est disponible ici :
 
@@ -73,4 +61,4 @@ Le site est disponible ici :
 
 ---
 
-## 📂 Structure du projet
+##  Structure du projet

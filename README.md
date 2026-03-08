@@ -56,8 +56,8 @@ Easy-Math cherche à :
 ## Démo du site
 
 Le site est disponible ici :
-
-👉 https://ton-username.github.io/easy-math
+[
+👉 (https://friedsed.github.io/esay-math-teens/) ]
 
 ---
 

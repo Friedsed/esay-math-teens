@@ -1,8 +1,17 @@
 # esay-math-teens
 # Easy-Math
 
-Easy-Math est une plateforme éducative dédiée à l’apprentissage et à la compréhension des mathématiques.  
-Le projet vise à fournir des ressources pédagogiques claires pour aider les étudiants à mieux comprendre les concepts mathématiques, du niveau secondaire jusqu’au niveau universitaire.
+Origine du projet
+
+L’inspiration pour la création de ce site web m’est venue lorsque j’étais en terminale. À cette époque, je faisais souvent des erreurs de calcul dans mes exercices de mathématiques. Ces erreurs, parfois simples mais répétées, m’empêchaient d’obtenir les résultats que je visais, notamment la note maximale.
+
+Cette expérience m’a motivé à réfléchir à un outil qui pourrait aider à mieux comprendre les méthodes de résolution et à identifier plus facilement les erreurs courantes dans les exercices. C’est ainsi qu’est née l’idée de créer Easy-Math, un site destiné à proposer des explications et des éléments de correction pour accompagner l’apprentissage des mathématiques.
+
+Ce projet a également été pour moi une occasion de développer ma curiosité pour la programmation et la création de sites web.
+
+Actuellement, le développement du site est temporairement en pause en raison de mes études et de projets académiques qui demandent beaucoup de temps. Cependant, je prévois de continuer à améliorer et compléter ce projet sur le long terme.
+
+Merci pour votre compréhension. Je reste également ouvert à toute proposition de collaboration ou de projet dans ce domaine.
 
 ## Aperçu du projet
 
